@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:pgrid_collection"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxprg="http://schemas.devexpress.com/winfx/2008/xaml/propertygrid" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" x:Class="pgrid_collection.MainWindow"
+        Title="MainWindow" Height="500" Width="1000">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <local:ItemInitializer x:Key="itemInitializer" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400" />
+        </Grid.ColumnDefinitions>
+        <dxprg:PropertyGridControl Name="pGrid" SelectedObject="{Binding Path=CurrentItem, ElementName=grid}" Grid.Column="1" UseCollectionEditor="{x:Null}"
+                                   ShowProperties="WithPropertyDefinitions" ShowCategories="False" CellValueChanged="pGrid_CellValueChanged" >
+            <dxprg:PropertyDefinition Path="ProductName" />
+            <dxprg:PropertyDefinition Path="City" />
+            <dxprg:PropertyDefinition Path="Country" />
+            <dxprg:PropertyDefinition Path="UnitPrice" />
+            <dxprg:PropertyDefinition Path="Quantity" />
+            <dxprg:CollectionDefinition Path="Suppliers" Type="{x:Type local:SupplierBase}"
+                                        NewItemInitializer="{StaticResource itemInitializer}" UseCollectionEditor="True" >
+                <dxprg:PropertyDefinition Path="*.FirstName" />
+                <dxprg:PropertyDefinition Path="*.LastName" />
+                <dxprg:PropertyDefinition Path="*.Phone" />
+            </dxprg:CollectionDefinition>
+        </dxprg:PropertyGridControl>
+        <dxg:GridControl Name="grid" Grid.Column="0">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="ProductName" />
+                <dxg:GridColumn FieldName="Country" />
+                <dxg:GridColumn FieldName="City" />
+                <dxg:GridColumn FieldName="UnitPrice" />
+                <dxg:GridColumn FieldName="Quantity" />
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView AllowEditing="False" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+
+
+
+    </Grid>
+</Window>
