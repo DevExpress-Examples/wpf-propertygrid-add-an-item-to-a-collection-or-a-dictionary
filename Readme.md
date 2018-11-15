@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
+* [Products.cs](./CS/Products.cs) (VB: [Products.vb](./VB/Products.vb))
+<!-- default file list end -->
 # How to: Add an Object with Predefined Property Values using the Collection Editor
 
 
