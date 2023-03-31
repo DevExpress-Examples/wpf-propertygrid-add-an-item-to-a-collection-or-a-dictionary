@@ -8,7 +8,9 @@
 
     <Window.Resources>
         <ResourceDictionary>
-            <local:ItemInitializer x:Key="itemInitializer" />
+            <dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer">
+                <dxprg:TypeDefinition Type="{x:Type local:Supplier}"  Name="Supplier" Description="New Supplier"/>
+            </dxprg:XamlInitializer>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
@@ -24,7 +26,7 @@
             <dxprg:PropertyDefinition Path="UnitPrice" />
             <dxprg:PropertyDefinition Path="Quantity" />
             <dxprg:CollectionDefinition Path="Suppliers" Type="{x:Type local:SupplierBase}"
-                                        NewItemInitializer="{StaticResource itemInitializer}" UseCollectionEditor="True" >
+                                        NewItemInitializer="{StaticResource xamlInitializer}" UseCollectionEditor="True" >
                 <dxprg:PropertyDefinition Path="*.FirstName" />
                 <dxprg:PropertyDefinition Path="*.LastName" />
                 <dxprg:PropertyDefinition Path="*.Phone" />

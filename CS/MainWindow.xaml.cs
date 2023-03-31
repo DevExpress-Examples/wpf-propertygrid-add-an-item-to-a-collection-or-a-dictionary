@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using DevExpress.Mvvm.Native;
+using System.Collections.Generic;
 using System.Windows;
-using DevExpress.Mvvm.Native;
 using DevExpress.Xpf.PropertyGrid;
 
 namespace pgrid_collection {
@@ -11,30 +11,15 @@ namespace pgrid_collection {
             grid.ItemsSource = new ProductList();
         }
 
-        private void pGrid_CellValueChanged(object sender, DevExpress.Xpf.PropertyGrid.CellValueChangedEventArgs args) {
+        private void pGrid_CellValueChanged(object sender, CellValueChangedEventArgs args) {
             var rowhandle = grid.GetSelectedRowHandles()[0];
             grid.RefreshRow(rowhandle);
         }
-    }
-    public class ItemInitializer : IInstanceInitializer {
-        public ItemInitializer() {
-        }
 
-        object IInstanceInitializer.CreateInstance(TypeInfo type) {
-            var item = new Supplier();
-            item.FirstName = "FIRSTNAME";
-            item.LastName = "LASTNAME";
-            item.Phone = "PHONE";
-            return item;
-        }
-
-
-        IEnumerable<TypeInfo> IInstanceInitializer.Types {
-            get {
-                return new List<TypeInfo>() {
-                        new TypeInfo(typeof(Supplier), "New Supplier"),
-                    };
-            }
+        private void XamlInitializer_Initialize(object sender, InstanceInitializeEventArgs e) {
+            e.Instance.FirstName = "FIRSTNAME";
+            e.Instance.LastName = "LASTNAME";
+            e.Instance.Phone = "PHONE";
         }
     }
 }
