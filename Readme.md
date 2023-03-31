@@ -6,7 +6,7 @@
 
 # WPF PropertyGrid - Add an Object with Predefined Property Values to a Collection
 
-This example demonstrates how to use a collection editor to add an item to a collection. Set one of these properties to `true` to allow users to add new items to the collection:
+This example demonstrates how to implement a collection editing feature and allow users to add an item to a collection. Set one of these properties to `true` to allow users to add new items to the collection:
 
 * [PropertyGridControl.UseCollectionEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.PropertyGridControl.UseCollectionEditor).
   
@@ -25,7 +25,7 @@ This image illustrates how to add an item to a collection:
 
 ## Implementation Details
 
-[XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) class allows you to use XAML to add items to a collection. Add the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) instance to the [Window.Resources](https://docs.microsoft.com/en-us/dotnet/api/system.windows.window.resources?view=netframework-4.8) collection and specify the [TypeDefinition](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.TypeDefinition) items that an end-user can add to a collection.
+[XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) class allows you to use XAML to add items to a collection. Add the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) instance to the `Window.Resources` and specify the [TypeDefinition](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.TypeDefinition) items that an end-user can add to a collection.
 
 ```xml
 <Window.Resources>
