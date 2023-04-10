@@ -6,7 +6,7 @@
 
 # WPF PropertyGrid - Add an Object with Predefined Property Values to a Collection
 
-This example demonstrates how to implement a collection editing feature and allow users to add an item to a collection. Set one of these properties to `true` to allow users to add new items to the collection:
+This example demonstrates how to implement a collection editing feature and allow users to add an item to a collection or a dictionary. Set one of these properties to `true` to allow users to add new items to the collection:
 
 * [PropertyGridControl.UseCollectionEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.PropertyGridControl.UseCollectionEditor).
   
@@ -25,7 +25,12 @@ This image illustrates how to add an item to a collection:
 
 ## Implementation Details
 
-[XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) class allows you to use XAML to add items to a collection. Add the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) instance to the `Window.Resources` and specify the [TypeDefinition](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.TypeDefinition) items that an end-user can add to a collection.
+The project includes the following examples:
+
+* _Collection_. This example demonstrates how to add an item to a collection.
+* _Dictionary_. This example demonstrates how to add an item to a dictionary.
+
+The _Collection_ example implements the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) class allows you to use XAML to add items to a collection. Add the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) instance to the `Window.Resources` and specify the [TypeDefinition](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.TypeDefinition) items that an end-user can add to a collection.
 
 ```xml
 <Window.Resources>
@@ -44,6 +49,28 @@ private void XamlInitializer_Initialize(object sender, InstanceInitializeEventAr
     e.Instance.FirstName = "FIRSTNAME";
     e.Instance.LastName = "LASTNAME";
     e.Instance.Phone = "PHONE";
+}
+```
+
+The _Dictionary_ example implements the [Property attributes]([xref:15623](https://docs.devexpress.com/WPF/15623/controls-and-libraries/property-grid/property-attributes)) and the `DevExpress.Mvvm.DataAnnotations.NewItemInstanceInitializerAttribute` class to add items to a dictionary. Add an attribute to the IDictionary property in the `Products` class.
+
+```csharp
+[DictionaryKey1()]
+public IDictionary<string, Supplier> Tags { get; set; } = new Dictionary<string, Supplier>();
+```
+
+Add a `DictionaryKeyAttribute` class that inherits from the `NewItemInstanceInitializerAttribute` class.
+
+```csharp
+public class DictionaryKey1Attribute : NewItemInstanceInitializerAttribute {
+    public DictionaryKey1Attribute() : base(typeof(Supplier)) { }
+    public override KeyValuePair<object, object>? CreateInstance(ITypeDescriptorContext context, IEnumerable dictionary) {
+        var testObject = ((DescriptorContext)context).Value as IDictionary<string, Supplier>;
+        int key = testObject.Keys.Count;
+        while(testObject.Keys.Contains(key.ToString()))
+            key++;
+        return new KeyValuePair<object, object>(key.ToString(), new Supplier());
+    }
 }
 ```
 
