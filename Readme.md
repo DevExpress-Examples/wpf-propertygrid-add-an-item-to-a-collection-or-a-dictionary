@@ -52,7 +52,7 @@ private void XamlInitializer_Initialize(object sender, InstanceInitializeEventAr
 }
 ```
 
-The _Dictionary_ example implements the [Property attributes]([xref:15623](https://docs.devexpress.com/WPF/15623/controls-and-libraries/property-grid/property-attributes)) and the `DevExpress.Mvvm.DataAnnotations.NewItemInstanceInitializerAttribute` class to add items to a dictionary. Add an attribute to the IDictionary property in the `Products` class.
+The _Dictionary_ example implements the [Property attributes](https://docs.devexpress.com/WPF/15623/controls-and-libraries/property-grid/property-attributes) and the `DevExpress.Mvvm.DataAnnotations.NewItemInstanceInitializerAttribute` class to add items to a dictionary. Add an attribute to the IDictionary property in the `Products` class.
 
 ```csharp
 [DictionaryKey1()]
