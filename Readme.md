@@ -82,7 +82,16 @@ public class DictionaryKey1Attribute : NewItemInstanceInitializerAttribute {
 <!-- default file list -->
 ## Files to Review
 
-* [MainWindow.xaml](./CS/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/MainWindow.xaml))
-* [MainWindow.xaml.cs](./CS/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/MainWindow.xaml.vb))
-* [Products.cs](./CS/Products.cs) (VB: [Products.vb](./VB/Products.vb))
+_Collections_ example:
+
+* [MainWindow.xaml](./CS/Collections/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/Collections/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/Collections/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/Collections/MainWindow.xaml.vb))
+* [Products.cs](./CS/Collections/Products.cs) (VB: [Products.vb](./VB/Collections/Products.vb))
+
+_Dictionary_ example:
+
+* [MainWindow.xaml](./CS/Dictionary/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/Dictionary/MainWindow.xaml))
+* [MainWindow.xaml.cs](./CS/Dictionary/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/Dictionary/MainWindow.xaml.vb))
+* [Products.cs](./CS/Dictionary/Products.cs) (VB: [Products.vb](./VB/Dictionary/Products.vb))
+
 <!-- default file list end -->
