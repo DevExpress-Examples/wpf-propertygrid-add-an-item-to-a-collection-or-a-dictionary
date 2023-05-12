@@ -8,7 +8,7 @@
 
 This example demonstrates how to implement a collection editing feature. With this feature, users can add items to a collection or a dictionary.
 
-This image below illustrates user actions:
+The image below illustrates user actions:
 
 ![Add an item to a collection](images/add-item.gif)
 
