@@ -26,8 +26,8 @@ Set one of the following properties to `true` to allow users to add new items to
 
 The project includes the following examples:
 
-* _Collection_. This example demonstrates how to add an item to a collection.
-* _Dictionary_. This example demonstrates how to add an item to a dictionary.
+* _Collection_ - Demonstrates how to add an item to a collection.
+* _Dictionary_ - Demonstrates how to add an item to a dictionary.
 
 ### The Collection Example
 
@@ -63,7 +63,7 @@ private void XamlInitializer_Initialize(object sender, InstanceInitializeEventAr
 
 ### The Dictionary Example
 
-Use the [Property attributes](https://docs.devexpress.com/WPF/15623/controls-and-libraries/property-grid/property-attributes) and to allow users to add items to a dictionary.
+Use the [Property attributes](https://docs.devexpress.com/WPF/15623/controls-and-libraries/property-grid/property-attributes) to allow users to add items to a dictionary.
 
 A dictionary key for a new item should be unique. In this example, the `DictionaryKey1Attribute` class creates a unique key for a new item. You can create your own attribute class to generate a unique key.
 
