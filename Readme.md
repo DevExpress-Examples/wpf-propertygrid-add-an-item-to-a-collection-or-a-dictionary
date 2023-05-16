@@ -4,6 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
+
 # WPF PropertyGrid - Add an Item to a Collection or a Dictionary
 
 This example demonstrates how to implement a collection editing feature. With this feature, users can add items to a collection or a dictionary.
