@@ -7,13 +7,13 @@
 
 # WPF PropertyGrid - Add an Item to a Collection or a Dictionary
 
-This example demonstrates how to implement a collection editing feature. With this feature, users can add items to a collection or a dictionary.
+This example displays a custom collection/dictionary property in a Property Grid and allows users to add new items/entries.
 
 The image below illustrates user actions:
 
 ![Add an item to a collection](images/add-item.gif)
 
-Set one of the following properties to `true` to allow users to add new items to the collection:
+Set one of the following properties to `true` to allow users to add new items to a collection/dictionary:
 
 * [PropertyGridControl.UseCollectionEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.PropertyGridControl.UseCollectionEditor) - Toggles collection editing for the entire property grid.
 
@@ -27,8 +27,8 @@ Set one of the following properties to `true` to allow users to add new items to
 
 The project includes the following examples:
 
-* _Collection_ - Demonstrates how to add an item to a collection.
-* _Dictionary_ - Demonstrates how to add an item to a dictionary.
+* _Collection_ - An example with a collection property.
+* _Dictionary_ - An example with a dictionary property.
 
 ### The Collection Example
 
@@ -38,13 +38,11 @@ Use the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Propert
 
 ```xml
 <Window.Resources>
-    <ResourceDictionary>
-        <dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer" />
-    </ResourceDictionary>
+    <dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer" />
 </Window.Resources>
 ```
 
-2. Specify the [TypeDefinition](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.TypeDefinition) items.
+2. Specify a [TypeDefinition](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.TypeDefinition) and its attributes.
 
 ```xml
 <dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer">
@@ -52,7 +50,7 @@ Use the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Propert
 </dxprg:XamlInitializer>
 ```
 
-3. In the [XamlInitializer.Initialize](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer.Initialize) event handler, set the initial values for the new object's properties.
+3. In the [XamlInitializer.Initialize](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer.Initialize) event handler, initialize new object's properties.
 
 ```csharp
 private void XamlInitializer_Initialize(object sender, InstanceInitializeEventArgs e) {
@@ -66,7 +64,7 @@ private void XamlInitializer_Initialize(object sender, InstanceInitializeEventAr
 
 Use [Property attributes](https://docs.devexpress.com/WPF/15623/controls-and-libraries/property-grid/property-attributes) to allow users to add items to a dictionary.
 
-A dictionary key for a new item should be unique. In this example, the `DictionaryKey1Attribute` class creates a unique key for a new item. You can create your own attribute class to generate a unique key.
+In this example, the `DictionaryKey1Attribute` class creates a unique key for a new item. Use this example as a template and create your own attribute class that generates unique keys.
 
 1. Add a `DictionaryKey1Attribute` class that inherits from the `DevExpress.Mvvm.DataAnnotations.NewItemInstanceInitializerAttribute` class.
 
@@ -111,3 +109,5 @@ _Dictionary_ example:
 * [Products.cs](./CS/Dictionary/Products.cs) (VB: [Products.vb](./VB/Dictionary/Products.vb))
 
 <!-- default file list end -->
+
+
