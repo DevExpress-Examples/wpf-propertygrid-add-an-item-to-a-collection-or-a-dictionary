@@ -62,26 +62,23 @@ Use [Property attributes](https://docs.devexpress.com/WPF/15623/controls-and-lib
 In this example, the `DictionaryKey1Attribute` class creates a unique key for a new item. Use this example as a template and create your own attribute class that generates unique keys.
 
 1. Add a `DictionaryKey1Attribute` class that inherits from the `DevExpress.Mvvm.DataAnnotations.NewItemInstanceInitializerAttribute` class.
-
-```csharp
-public class DictionaryKey1Attribute : NewItemInstanceInitializerAttribute {
-    public DictionaryKey1Attribute() : base(typeof(Supplier)) { }
-    public override KeyValuePair<object, object>? CreateInstance(ITypeDescriptorContext context, IEnumerable dictionary) {
-        var testObject = ((DescriptorContext)context).Value as IDictionary<string, Supplier>;
-        int key = testObject.Keys.Count;
-        while(testObject.Keys.Contains(key.ToString()))
-            key++;
-        return new KeyValuePair<object, object>(key.ToString(), new Supplier());
+    ```csharp
+    public class DictionaryKey1Attribute : NewItemInstanceInitializerAttribute {
+        public DictionaryKey1Attribute() : base(typeof(Supplier)) { }
+        public override KeyValuePair<object, object>? CreateInstance(ITypeDescriptorContext context, IEnumerable dictionary) {
+            var testObject = ((DescriptorContext)context).Value as IDictionary<string, Supplier>;
+            int key = testObject.Keys.Count;
+            while(testObject.Keys.Contains(key.ToString()))
+                key++;
+            return new KeyValuePair<object, object>(key.ToString(), new Supplier());
+        }
     }
-}
-```
-
+    ```
 2. Add the attribute to the dictionary property.
-
-```csharp
-[DictionaryKey1()]
-public IDictionary<string, Supplier> Tags { get; set; } = new Dictionary<string, Supplier>();
-```
+    ```csharp
+    [DictionaryKey1()]
+    public IDictionary<string, Supplier> Tags { get; set; } = new Dictionary<string, Supplier>();
+    ```
 
 ## Documentation
 
