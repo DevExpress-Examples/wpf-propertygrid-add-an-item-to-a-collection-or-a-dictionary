@@ -35,30 +35,25 @@ The project includes the following examples:
 Use the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer) class to allow users to add an item to a collection.
 
 1. Add the `XamlInitializer` class to the `Window.Resources` section.
-
-```xml
-<Window.Resources>
-    <dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer" />
-</Window.Resources>
-```
-
+    ```xml
+    <Window.Resources>
+        <dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer" />
+    </Window.Resources>
+    ```
 2. Specify a [TypeDefinition](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.TypeDefinition) and its attributes.
-
-```xml
-<dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer">
-    <dxprg:TypeDefinition Type="{x:Type local:Supplier}"  Name="Supplier" Description="New Supplier"/>
-</dxprg:XamlInitializer>
-```
-
+    ```xml
+    <dxprg:XamlInitializer Initialize="XamlInitializer_Initialize" x:Key="xamlInitializer">
+        <dxprg:TypeDefinition Type="{x:Type local:Supplier}"  Name="Supplier" Description="New Supplier"/>
+    </dxprg:XamlInitializer>
+    ```
 3. In the [XamlInitializer.Initialize](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer.Initialize) event handler, initialize new object's properties.
-
-```csharp
-private void XamlInitializer_Initialize(object sender, InstanceInitializeEventArgs e) {
-    e.Instance.FirstName = "FIRSTNAME";
-    e.Instance.LastName = "LASTNAME";
-    e.Instance.Phone = "PHONE";
-}
-```
+    ```csharp
+    private void XamlInitializer_Initialize(object sender, InstanceInitializeEventArgs e) {
+        e.Instance.FirstName = "FIRSTNAME";
+        e.Instance.LastName = "LASTNAME";
+        e.Instance.Phone = "PHONE";
+    }
+    ```
 
 ### The Dictionary Example
 
