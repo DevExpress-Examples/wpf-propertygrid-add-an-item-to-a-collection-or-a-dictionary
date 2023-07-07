@@ -4,19 +4,17 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-
 # WPF PropertyGrid - Add an Item to a Collection or a Dictionary
 
-This example displays a custom collection/dictionary property in a Property Grid and allows users to add new items/entries.
+This example displays a custom collection/dictionary property in the DevExpress WPF Property Grid and allows users to add new items/entries as requirements/business needs dictate.
 
-The image below illustrates user actions:
+The following image illustrates available user actions:
 
 ![Add an item to a collection](images/add-item.gif)
 
-Set one of the following properties to `true` to allow users to add new items to a collection/dictionary:
+To incorporate this feature in your DevExpress-powered WPF app (allow users to add new items to a collection/dictionary), set one of the following properties to `true`:
 
 * [PropertyGridControl.UseCollectionEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.PropertyGridControl.UseCollectionEditor) - Toggles collection editing for the entire property grid.
-
 * [CollectionDefinition.UseCollectionEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.CollectionDefinition.UseCollectionEditor) - Toggles collection editing for individual collections.
   
 ```xaml
@@ -46,7 +44,7 @@ Use the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Propert
         <dxprg:TypeDefinition Type="{x:Type local:Supplier}"  Name="Supplier" Description="New Supplier"/>
     </dxprg:XamlInitializer>
     ```
-3. In the [XamlInitializer.Initialize](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer.Initialize) event handler, initialize new object's properties.
+3. In the [XamlInitializer.Initialize](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer.Initialize) event handler, initialize the new object's properties.
     ```csharp
     private void XamlInitializer_Initialize(object sender, InstanceInitializeEventArgs e) {
         e.Instance.FirstName = "FIRSTNAME";
@@ -59,9 +57,9 @@ Use the [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.Propert
 
 Use [Property attributes](https://docs.devexpress.com/WPF/15623/controls-and-libraries/property-grid/property-attributes) to allow users to add items to a dictionary.
 
-In this example, the `DictionaryKey1Attribute` class creates a unique key for a new item. Use this example as a template and create your own attribute class that generates unique keys.
+In this example, the `DictionaryKey1Attribute` class creates a unique key for a new item. Use this example as a template and create your own attribute class to generate unique keys.
 
-1. Add a `DictionaryKey1Attribute` class that inherits from the `DevExpress.Mvvm.DataAnnotations.NewItemInstanceInitializerAttribute` class.
+1. Add a `DictionaryKey1Attribute` class inherited from the `DevExpress.Mvvm.DataAnnotations.NewItemInstanceInitializerAttribute` class.
     ```csharp
     public class DictionaryKey1Attribute : NewItemInstanceInitializerAttribute {
         public DictionaryKey1Attribute() : base(typeof(Supplier)) { }
