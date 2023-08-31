@@ -80,7 +80,7 @@ In this example, the `DictionaryKey1Attribute` class creates a unique key for a 
 
 ## Documentation
 
-* [Collection Editing](https://docs.devexpress.com/WPF/15719/controls-and-libraries/property-grid/property-definitions/collection-definitions#collection-editing)
+* [Edit the Collection](https://docs.devexpress.com/WPF/15719/controls-and-libraries/property-grid/property-definitions/collection-definitions#edit-the-collection)
 * [XamlInitializer](https://docs.devexpress.com/WPF/DevExpress.Xpf.PropertyGrid.XamlInitializer)
 
 <!-- default file list -->
